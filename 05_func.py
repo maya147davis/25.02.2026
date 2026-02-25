@@ -34,7 +34,7 @@ login:
 menu:
 1. deposit --> can deposit up to 10_000 without certificate, above need certificate
 2. withdraw --> can withdraw and cannot get negative balance
-3. transfer --> can transfer cannot get negative balance, into a valid account (active)
+3. transfer --> can transfer cannot get negative balance, into a valid account
 # 4. make active  --> only if not active  -- bonus
 # 5. make not active --> only if active  -- bonus
 6. exit to main menu
@@ -55,7 +55,7 @@ def get_account_number_from_user():
 
 def check_if_valid(user_account_number: int, balance: list):
     # account      0     1        2     3   4    5
-    # balance = [300, 4000, 100_000, 5000, 0, 900]
+    # balance = [300, 4000, 100_000, 5000, 0, 900] len(balance) = 6
     if 0 <= user_account_number < len(balance):
         valid = True
     else:
@@ -109,10 +109,10 @@ while True:
                    withdraw(user_account_number, balance, withdraw_amount)
             case 3:transfer_amount = get_transfer_amount()
                    trasfer_to_account = get_transfer_to_account(balance)
-                    if check_if_valid(trasfer_to_account, accounts) == False:
-                    print('account not valid...')
-                        continue
-                    transfer(user_account_number, balance, trasfer_to_account)
+                   if check_if_valid(trasfer_to_account, accounts) == False:
+                       print('account not valid...')
+                       continue
+                   transfer(user_account_number, balance, trasfer_to_account)
             case 4: break
             case _: print('invalid choice')
 
